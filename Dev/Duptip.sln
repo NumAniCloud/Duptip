@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duptip", "Duptip\Duptip.csproj", "{833E18FD-DD38-4956-9F75-82AE53AEFAE3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duptip", "Duptip.Battle\Duptip.Battle.csproj", "{833E18FD-DD38-4956-9F75-82AE53AEFAE3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duptip.Sample", "Duptip.Sample\Duptip.Sample.csproj", "{E500A6DE-AF38-4CBD-8A10-38FCEB181576}"
 EndProject

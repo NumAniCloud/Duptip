@@ -120,3 +120,24 @@ public static Task On$timing$(this IBattler battler, $context_type$ context)
 	return battler.StatusManager.RunAsync<$passive_interface_type$>(effect => effect.RunAsync(context));
 }
 ```
+
+## 選んだ敵が実際には居なかった場合の処理は？
+
+## ジェネリクスを使わずに、ユーザー定義のBattlerなどを違和感なく使いたい
+
+BattleContext.Players などは IEnumerable&lt;Battler&gt; 型である。
+ユーザーはダウンキャストして使わなければならなくなる。
+ダウンキャストなしで使うことはできないだろうか？
+ジェネリクスは至る所で利用するには煩雑すぎる……
+
+もしアイテムをスキルの対象にできるようになったなら、アイテムの型までジェネリクスで指定するはめになってしまう……
+
+ContextクラスにBattlerなどを持ってしまっているのが問題。
+Duptip.Battle内で使うための Playersゲッターと、ユーザーが使うためのPlayersゲッターは分けるべき。
+例えば、BattleContextクラスとUserContextクラスで分ける。
+こうしたとしても、UserContextの型をジェネリクスで明示しなければならないのは変わらない。
+その代わり、 Invocation&lt;Battler, Item, Skill, Field, ...> のようにしなければものは、 Invocation&lt;TContext> で済む。
+
+ActiveEffect などで基底クラスに毎回コンテキストの型を明示しなければならないが、中間にクッションとなるクラスに継承させれば緩和できる。
+
+Battlerを裸で渡される部分は相変わらず扱いづらいままになる……

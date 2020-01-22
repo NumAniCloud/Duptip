@@ -1,4 +1,7 @@
 ﻿using System;
+using Duptip.Battle.Common;
+using Duptip.Sample.Entities;
+using Duptip.Sample.Services;
 
 namespace Duptip.Sample
 {
@@ -6,7 +9,9 @@ namespace Duptip.Sample
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var orderDeterminator = new BattlerOrderDeterminator();
+			var settings = new BattleFlowSettings();
+			var flow = new BattleFlow<BattleResult>(settings);
         }
     }
 }
